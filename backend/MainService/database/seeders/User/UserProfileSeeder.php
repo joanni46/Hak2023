@@ -10,21 +10,21 @@ class UserProfileSeeder extends Seeder
     public function run(): void
     {
         /** @var User $admin */
-        $admin = User::query()->where((new User())->getTable() . '.email', '=', 'admin@gmail.com')->firstOrFail();
+        $admin = User::query()->where(User::getTableName() . '.email', '=', 'admin@gmail.com')->firstOrFail();
 
         $admin->profile()->create([
             'first_name' => 'admin',
         ]);
 
         /** @var User $moderator */
-        $moderator = User::query()->where((new User())->getTable() . '.email', '=', 'moderator@gmail.com')->firstOrFail();
+        $moderator = User::query()->where(User::getTableName() . '.email', '=', 'moderator@gmail.com')->firstOrFail();
 
         $moderator->profile()->create([
             'first_name' => 'moderator',
         ]);
 
         /** @var User $irina */
-        $irina = User::query()->where((new User())->getTable() . '.email', '=', 'irina@gmail.com')->firstOrFail();
+        $irina = User::query()->where(User::getTableName() . '.email', '=', 'irina@gmail.com')->firstOrFail();
 
         $irina->profile()->create([
             'first_name' => 'Ирина',
@@ -32,7 +32,7 @@ class UserProfileSeeder extends Seeder
         ]);
 
         /** @var User $elena */
-        $elena = User::query()->where((new User())->getTable() . '.email', '=', 'elena@gmail.com')->firstOrFail();
+        $elena = User::query()->where(User::getTableName() . '.email', '=', 'elena@gmail.com')->firstOrFail();
 
         $elena->profile()->create([
             'first_name' => 'Елена',
@@ -40,7 +40,7 @@ class UserProfileSeeder extends Seeder
         ]);
 
         /** @var User $oleg */
-        $oleg = User::query()->where((new User())->getTable() . '.email', '=', 'oleg@gmail.com')->firstOrFail();
+        $oleg = User::query()->where(User::getTableName() . '.email', '=', 'oleg@gmail.com')->firstOrFail();
 
         $oleg->profile()->create([
             'first_name' => 'Олег',

@@ -9,29 +9,29 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::query()->create([
+        User::query()->make([
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin')
-        ]);
+            'password' => (string) bcrypt('admin')
+        ])->save();
 
         User::query()->create([
             'email' => 'moderator@gmail.com',
-            'password' => bcrypt('moderator')
+            'password' => (string) bcrypt('moderator')
         ]);
 
         User::query()->create([
             'email' => 'irina@gmail.com',
-            'password' => bcrypt('irina')
+            'password' => (string) bcrypt('irina')
         ]);
 
         User::query()->create([
             'email' => 'elena@gmail.com',
-            'password' => bcrypt('elena')
+            'password' => (string) bcrypt('elena')
         ]);
 
         User::query()->create([
             'email' => 'oleg@gmail.com',
-            'password' => bcrypt('oleg')
+            'password' => (string) bcrypt('oleg')
         ]);
     }
 }

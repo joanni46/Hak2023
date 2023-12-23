@@ -29,7 +29,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = ['users'];
+    protected $table = 'users';
 
     protected $fillable = [
         'email',
@@ -49,5 +49,10 @@ class User extends Authenticatable
     public function profile(): HasOne
     {
         return $this->hasOne(UserProfile::class, 'user_id', 'id');
+    }
+
+    public static function getTableName(): string
+    {
+        return with(new static)->getTable();
     }
 }
