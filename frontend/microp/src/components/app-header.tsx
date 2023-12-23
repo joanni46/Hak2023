@@ -24,19 +24,8 @@ const Header: FC = () => {
           <img src={logo} alt="logo" height={64} />
         </NavLink>
         <div className={styles.MenuBox}>
-          <NavLink to="/booking" className={styles.Link}>
-            {function favoritesLink({ isActive }: { isActive: boolean }) {
-              return (
-                <p
-                  className={isActive ? styles.TextActive : styles.TextInactive}
-                >
-                  Запись
-                </p>
-              );
-            }}
-          </NavLink>
           <NavLink to="/streams" className={styles.Link}>
-            {function favoritesLink({ isActive }: { isActive: boolean }) {
+            {function linkStyle({ isActive }: { isActive: boolean }) {
               return (
                 <p
                   className={isActive ? styles.TextActive : styles.TextInactive}
@@ -46,19 +35,8 @@ const Header: FC = () => {
               );
             }}
           </NavLink>
-          <NavLink to="/schedule" className={styles.Link}>
-            {function favoritesLink({ isActive }: { isActive: boolean }) {
-              return (
-                <p
-                  className={isActive ? styles.TextActive : styles.TextInactive}
-                >
-                  Расписание
-                </p>
-              );
-            }}
-          </NavLink>
           <NavLink to="/surveys" className={styles.Link}>
-            {function favoritesLink({ isActive }: { isActive: boolean }) {
+            {function linkStyle({ isActive }: { isActive: boolean }) {
               return (
                 <p
                   className={isActive ? styles.TextActive : styles.TextInactive}
@@ -68,10 +46,21 @@ const Header: FC = () => {
               );
             }}
           </NavLink>
+          <NavLink to="/admin" className={styles.Link}>
+            {function linkStyle({ isActive }: { isActive: boolean }) {
+              return (
+                <p
+                  className={isActive ? styles.TextActive : styles.TextInactive}
+                >
+                  Запись
+                </p>
+              );
+            }}
+          </NavLink>
         </div>
         <div className={styles.ProfileBox}>
           <NavLink to="/notifications" className={styles.Link}>
-            {function favoritesLink({ isActive }: { isActive: boolean }) {
+            {function linkStyle({ isActive }: { isActive: boolean }) {
               return (
                 <img
                   src={isActive ? notificationInactive : notificationInactive}
@@ -82,7 +71,7 @@ const Header: FC = () => {
             }}
           </NavLink>
           <NavLink to="/profile" className={styles.Link}>
-            {function profileLink({ isActive }: { isActive: boolean }) {
+            {function linkStyle({ isActive }: { isActive: boolean }) {
               return (
                 <div
                   className={
