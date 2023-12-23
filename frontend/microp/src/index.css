@@ -1,0 +1,61 @@
+:root {
+  height: 100%;
+  /*Size variables*/
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-9: 36px;
+  --l-1: 40px;
+  --l-2: 60px;
+  --l-3: 80px;
+  --l-4: 100px;
+  --l-5: 120px;
+
+
+  --container-width: 1280px;
+  /*Color variables*/
+  --bg-dark: #373a36;
+  --bg-contrast: #ffdd00;
+  --bg-light: #ffffff;
+  --bg-cards: #f2f2f2
+  --accent-primary: #d48166;
+  --accent-secondary: #ffffff;
+  --text-dark: #262626;
+  --text-accent: #ffdd00;
+  --text-light: #f9f9f9;
+  --text-grey: #e6e2dd;
+  background-color: var(--bg-light);
+  body {
+    height: 100%;
+  }
+  #root {
+    height: 100%;
+  }
+}
+a {
+  text-decoration: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+input {
+  all: unset;
+}
