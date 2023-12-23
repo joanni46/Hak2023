@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Work+Sans&display=swap');
+
+
+
+$base_color:rgba(230, 199, 33, 0.96);
+
+body{
+    background-color: $base_color;
+}
+
+header{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 50px 50px ;
+    
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        
+
+        // list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        
+        .logo{
+            padding-left: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            // width: 87px;
+            // height: 87px;
+            a{
+                
+            }
+        }
+        .nav_list{
+            ul{ display: flex;
+                justify-content: space-around;
+
+
+                li{
+                    margin-right: 20px;
+                    padding-right: 120px;
+                    :hover{
+                            // color: #ff6600;
+                            color: $base_color;
+                            
+                        }
+                    a{
+                        // text-decoration: none;
+                        color: #000;
+                        transition: color 0.3s ease;
+                        
+                    }
+                    
+                }
+
+            }
+        }   
+        .item_3{
+            display: flex;
+            align-items: center;
+            button{
+            
+
+            :hover{
+                color: $base_color;
+            }
+            a{  padding-right: 60px;
+                color: #000;
+                transition: color 0.3s ease;
+            }
+        }
+        .lang{
+            display: flex;
+            align-items: center;
+
+            color: #000;
+            padding-right: 30px;
+            img{
+                padding: 10px;
+            }
+        }
+        }
+        
+
+     }
+     @media (max-width: 768px) {
+        .header {
+              flex-direction: column;
+              align-items: flex-start;
+        }
+        
+        .nav_list li {
+              margin-right: 0;
+              margin-bottom: 10px;
+        }
+  }
+}
