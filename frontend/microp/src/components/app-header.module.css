@@ -1,0 +1,87 @@
+* {
+  font-family: "Mostserrat", sans-serif;
+}
+
+.Header {
+  /* width: var(--container-width);
+  margin: 0 auto; */
+  display: flex;
+  height: var(--l-4);
+  align-items: center;
+  background-color: var(--bg-light);
+  border-radius: 0 0 var(--l-2) var(--l-2);
+}
+
+.Navigation {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+.LogoBox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex-basis: 10%;
+}
+.MenuBox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--l-1);
+  justify-content: center;
+  flex-basis: 80%;
+}
+.ProfileBox {
+  height: 100%;
+  display: flex;
+  gap: var(--s-4);
+  flex-basis: 10%;
+  justify-content: end;
+}
+
+.Link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: "Mostserrat", sans-serif;
+  height: 100%;
+  text-decoration: none;
+  font-size: var(--s-5);
+  color: var(--text-dark);
+}
+
+.TextInactive {
+  box-sizing: border-box;
+  font-family: "Mostserrat", sans-serif;
+  text-decoration: none;
+  font-size: var(--s-5);
+  color: var(--text-dark);
+  padding-block: var(--s-2);
+}
+.TextActive {
+  box-sizing: border-box;
+  font-family: "Mostserrat", sans-serif;
+  text-decoration: none;
+  font-size: var(--s-5);
+  color: var(--text-dark);
+  box-shadow: 0px 3px 0 var(--text-accent);
+  padding-block: var(--s-2);
+}
+
+@media (max-width: 1600px) {
+  .Navigation {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Navigation {
+    width: 50%;
+  }
+}
