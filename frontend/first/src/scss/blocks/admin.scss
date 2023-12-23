@@ -1,0 +1,24 @@
+$grey: #D9D9D9;
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Work+Sans&display=swap');
+
+$base_color:rgba(230, 199, 33, 0.96);
+
+.admin_panel{
+    background-color: $base_color;
+    display: flex;
+    background-color: $grey;
+
+    .raspisani{
+        display: flex;
+        justify-content: center;
+        background-color: $grey;
+
+
+    }
+    .opros{
+        display: flex;
+        background-color: $grey;
+        justify-content: center;
+    }
+}

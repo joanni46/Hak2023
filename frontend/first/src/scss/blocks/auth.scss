@@ -1,0 +1,95 @@
+$grey: #D9D9D9;
+
+.auth{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    background: rgba(230, 199, 33, 0.96);
+    .title__auth_password{
+      border: 1px solid #ccc; /* Устанавливаем цвет рамки */
+      padding: 8px; /* Устанавливаем отступ вокруг текста внутри input */
+      border-radius: 4px; /* Добавляем скругленные углы */
+      box-sizing: border-box; /* Учитываем толщину рамки в общей ширине элемента */
+      // width: 250px;
+
+      margin-left: 15px;
+      width: 240px;
+      height: 64px;
+      
+    }
+
+    .title__auth_email{
+      border: 1px solid #ccc; /* Устанавливаем цвет рамки */
+      padding: 8px; /* Устанавливаем отступ вокруг текста внутри input */
+      border-radius: 4px; /* Добавляем скругленные углы */
+      box-sizing: border-box; /* Учитываем толщину рамки в общей ширине элемента */
+      margin-left: 15px;
+      width: 240px;
+      height: 64px;
+    }
+}
+.container__auth {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: #FEFEFE;
+  }
+  
+  .title__auth {
+    color: #000;
+    font-family: Istok Web;
+    font-size: 37px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 78px;
+    padding-bottom:47px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 60px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .button__auth {
+    border-radius: 28px;
+    background: #F8E21C;
+    color: rgb(4, 4, 4);
+    padding: 14px 20px;
+    margin: 47px 103px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  .text_auth{
+    color: #B3B1B1;
+    padding-top: 26px;
+    padding-bottom: 11px;
+    font-family: Istok Web;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .img__auth{
+    padding-bottom: 16px;
+  }
+
+ 
+
+ 
