@@ -4,6 +4,7 @@ namespace app\Http\Controllers\Meeting;
 
 use App\Actions\Meeting\GetMeetingAction;
 use App\Http\Controllers\Controller;
+use App\Transformers\Meeting\MeetingTransformer;
 use Illuminate\Http\JsonResponse;
 
 final class GetMeeting extends Controller
@@ -12,6 +13,9 @@ final class GetMeeting extends Controller
     {
         $meeting = $action->execute($id);
 
-        return responder()->success($meeting)->respond();
+        return responder()
+            ->success($meeting, new MeetingTransformer())
+            ->with(['specialist.profile'])
+            ->respond();
     }
 }
