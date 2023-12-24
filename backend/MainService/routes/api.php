@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Meeting\GetMeeting;
 use App\Http\Controllers\Meeting\GetMeetings;
+use App\Http\Controllers\Meeting\StoreMeeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,15 @@ Route::group(['prefix' => 'meetings', 'as' => 'meetings.'], function () {
 
 Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
 
-Route::group(['middleware' => 'api', 'prefix' => 'auth', 'as' => 'auth.'], function ($router) {
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('refresh', [AuthController::class, 'refresh'])->name('refresh');
-    Route::post('me', [AuthController::class, 'me'])->name('me');
+Route::group(['middleware' => 'api'], function () {
+    Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+        Route::post('refresh', [AuthController::class, 'refresh'])->name('refresh');
+        Route::post('me', [AuthController::class, 'me'])->name('me');
+    });
+
+    Route::group(['prefix' => 'meetings', 'as' => 'meetings.'], function () {
+        Route::post('/', StoreMeeting::class)->name('store');
+        Route::delete('/{id}', StoreMeeting::class)->name('destroy');
+    });
 });

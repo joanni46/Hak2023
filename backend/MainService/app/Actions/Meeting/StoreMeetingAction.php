@@ -16,8 +16,7 @@ final class StoreMeetingAction
         $meeting = new Meeting();
         $meeting->title = $dto->title;
         $meeting->date_start = $dto->date_start;
-//        $meeting->specialist_id = $this->authentication->id();
-        $meeting->specialist_id = 1;
+        $meeting->specialist_id = $this->authentication->id();
         $meeting->status = MeetingStatusEnum::not_started->value;
         $meeting->broadcast_link = $dto->broadcast_link;
         $meeting->save();
