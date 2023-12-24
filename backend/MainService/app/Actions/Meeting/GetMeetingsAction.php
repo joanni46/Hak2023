@@ -12,6 +12,6 @@ final class GetMeetingsAction
     {
         return Meeting::query()
             ->filter($dto->filter)
-            ->paginate(page: $dto->page, perPage: $dto->perPage);
+            ->paginate(perPage: $dto->perPage, page: $dto->page);
     }
 }

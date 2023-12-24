@@ -6,6 +6,11 @@ use App\Http\Controllers\Meeting\DeleteMeeting;
 use App\Http\Controllers\Meeting\GetMeeting;
 use App\Http\Controllers\Meeting\GetMeetings;
 use App\Http\Controllers\Meeting\StoreMeeting;
+use App\Http\Controllers\User\DeleteUser;
+use App\Http\Controllers\User\GetUser;
+use App\Http\Controllers\User\GetUsers;
+use App\Http\Controllers\User\StoreUser;
+use App\Http\Controllers\User\UpdateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +50,13 @@ Route::group(['middleware' => 'api'], function () {
         Route::delete('/{id}', DeleteMeeting::class)
             ->middleware(['role:' . RoleEnum::Specialist->value . '|' . RoleEnum::Admin->value])
             ->name('destroy');
+    });
+
+    Route::group(['middleware' => 'role:' . RoleEnum::Admin->value, 'prefix' => 'users', 'as' => 'users.'], function () {
+        Route::get('/', GetUsers::class)->name('index');
+        Route::get('/{id}', GetUser::class)->name('show');
+        Route::post('/', StoreUser::class)->name('store');
+        Route::post('/{id}', UpdateUser::class)->name('update');
+        Route::delete('/{id}', DeleteUser::class)->name('destroy');
     });
 });
