@@ -16,13 +16,13 @@
   --l-4: 100px;
   --l-5: 120px;
 
-
+  --card-width: 540px;
   --container-width: 1280px;
   /*Color variables*/
   --bg-dark: #373a36;
   --bg-contrast: #ffdd00;
   --bg-light: #ffffff;
-  --bg-cards: #f2f2f2
+  --bg-cards: #f2f2f2;
   --accent-primary: #d48166;
   --accent-secondary: #ffffff;
   --text-dark: #262626;
