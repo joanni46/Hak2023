@@ -2,10 +2,11 @@
 
 namespace App\Models\Meeting;
 
+use App\Abstract\Model\BaseModel;
 use App\Models\User\User;
 use Carbon\CarbonInterface;
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -20,11 +21,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $broadcast_link
  *
  * Relations.
- *
+ * @property-read User $specialist
  */
-class Meeting extends Model
+class Meeting extends BaseModel
 {
     use HasFactory;
+    use Filterable;
 
     protected $table = 'meetings';
 
@@ -35,8 +37,12 @@ class Meeting extends Model
       'broadcast_link',
     ];
 
+    protected $casts = [
+        'date_start' => 'datetime',
+    ];
+
     public function specialist(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'specialist_id', 'id');
     }
 }
