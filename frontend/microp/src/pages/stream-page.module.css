@@ -29,13 +29,20 @@
   margin-top: var(--l-1);
   font-family: "Montserrat", sans-serif;
   display: flex;
-  gap: var(--s-4);
+  gap: var(--s-6);
 }
 .StatusText {
 }
 .StatusButton {
   font-weight: bold;
   cursor: pointer;
+}
+
+.DateFilter {
+  display: flex;
+  gap: var(--s-2);
+  justify-content: center;
+  align-items: center;
 }
 
 .SubmitFilterContainer {

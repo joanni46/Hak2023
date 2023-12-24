@@ -16,12 +16,22 @@ interface Meeting {
 export const StreamPage: FC = () => {
   const [meetings, setMeetings] = useState<Meeting[]>([]);
   const [selectedStatus, setSelectedStatus] = useState<string>("");
+  const [selectedDateFrom, setSelectedDateFrom] = useState<string>("");
+  const [selectedDateTo, setSelectedDateTo] = useState<string>("");
 
   useEffect(() => {
     const filterParams: Record<string, string> = {};
 
     if (selectedStatus) {
       filterParams["filter[status]"] = selectedStatus;
+    }
+
+    if (selectedDateFrom) {
+      filterParams["filter[date_start_from]"] = selectedDateFrom;
+    }
+
+    if (selectedDateTo) {
+      filterParams["filter[date_start_to]"] = selectedDateTo;
     }
 
     const url = new URL("http://localhost:8000/api/meetings");
@@ -35,7 +45,7 @@ export const StreamPage: FC = () => {
       .catch((error) => {
         console.error("Error fetching meetings:", error);
       });
-  }, [selectedStatus]);
+  }, [selectedStatus, selectedDateFrom, selectedDateTo]);
 
   const formatDateTime = (dateTime: string): string => {
     const options = {
@@ -64,6 +74,14 @@ export const StreamPage: FC = () => {
     setSelectedStatus(event.target.value);
   };
 
+  const handleDateFromChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedDateFrom(event.target.value);
+  };
+
+  const handleDateToChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedDateTo(event.target.value);
+  };
+
   return (
     <>
       <div className={styles.PageTitleContainer}>
@@ -84,6 +102,24 @@ export const StreamPage: FC = () => {
                 <option value="in_progress">В процессе</option>
                 <option value="finished">Завершенные</option>
               </select>
+              <div className={styles.DateFilter}>
+                <p className={styles.DateFilterText}>Дата начала с:</p>
+                <input
+                  type="date"
+                  className={styles.DateInput}
+                  value={selectedDateFrom}
+                  onChange={handleDateFromChange}
+                />
+              </div>
+              <div className={styles.DateFilter}>
+                <p className={styles.DateFilterText}>Дата начала с:</p>
+                <input
+                  type="date"
+                  className={styles.DateInput}
+                  value={selectedDateTo}
+                  onChange={handleDateToChange}
+                />
+              </div>
             </div>
             <div className={styles.SubmitFilterContainer}>
               <button className={styles.SubmitFilterButton}>Применить</button>
