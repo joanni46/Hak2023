@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Meeting\DeleteMeeting;
 use App\Http\Controllers\Meeting\GetMeeting;
 use App\Http\Controllers\Meeting\GetMeetings;
 use App\Http\Controllers\Meeting\StoreMeeting;
@@ -38,6 +39,6 @@ Route::group(['middleware' => 'api'], function () {
 
     Route::group(['prefix' => 'meetings', 'as' => 'meetings.'], function () {
         Route::post('/', StoreMeeting::class)->name('store');
-        Route::delete('/{id}', StoreMeeting::class)->name('destroy');
+        Route::delete('/{id}', DeleteMeeting::class)->name('destroy');
     });
 });
