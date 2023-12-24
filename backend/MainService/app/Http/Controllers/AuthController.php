@@ -17,7 +17,7 @@ final class AuthController extends Controller
     {
         $credentials = [
             'email' => $dto->email,
-            'password' => $dto->email,
+            'password' => $dto->password,
         ];
 
         if (! $token = auth()->attempt($credentials)) {
