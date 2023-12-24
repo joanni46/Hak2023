@@ -6,9 +6,7 @@ use App\Abstract\Model\BaseModel;
 use App\Models\User\User;
 use Carbon\CarbonInterface;
 use EloquentFilter\Filterable;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
