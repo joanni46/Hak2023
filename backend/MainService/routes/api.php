@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RoleEnum;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Meeting\DeleteMeeting;
 use App\Http\Controllers\Meeting\GetMeeting;
@@ -38,7 +39,11 @@ Route::group(['middleware' => 'api'], function () {
     });
 
     Route::group(['prefix' => 'meetings', 'as' => 'meetings.'], function () {
-        Route::post('/', StoreMeeting::class)->name('store');
-        Route::delete('/{id}', DeleteMeeting::class)->name('destroy');
+        Route::post('/', StoreMeeting::class)
+            ->middleware(['role:' . RoleEnum::Specialist->value . '|' . RoleEnum::Admin->value])
+            ->name('store');
+        Route::delete('/{id}', DeleteMeeting::class)
+            ->middleware(['role:' . RoleEnum::Specialist->value . '|' . RoleEnum::Admin->value])
+            ->name('destroy');
     });
 });
