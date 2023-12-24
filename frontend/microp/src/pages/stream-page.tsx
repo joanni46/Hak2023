@@ -14,12 +14,19 @@ interface Meeting {
 }
 
 export const StreamPage: FC = () => {
+  const today = new Date();
+  const fiveDaysBefore = new Date(today.getTime() - 5 * 24 * 60 * 60 * 1000);
+  const fiveDaysAfter = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000);
   const [meetings, setMeetings] = useState<Meeting[]>([]);
   const [selectedStatus, setSelectedStatus] = useState<string>("");
-  const [selectedDateFrom, setSelectedDateFrom] = useState<string>("");
-  const [selectedDateTo, setSelectedDateTo] = useState<string>("");
+  const [selectedDateFrom, setSelectedDateFrom] = useState<string>(
+    fiveDaysBefore.toISOString().split("T")[0]
+  );
+  const [selectedDateTo, setSelectedDateTo] = useState<string>(
+    fiveDaysAfter.toISOString().split("T")[0]
+  );
 
-  useEffect(() => {
+  const handleFilterSubmit = () => {
     const filterParams: Record<string, string> = {};
 
     if (selectedStatus) {
@@ -45,7 +52,7 @@ export const StreamPage: FC = () => {
       .catch((error) => {
         console.error("Error fetching meetings:", error);
       });
-  }, [selectedStatus, selectedDateFrom, selectedDateTo]);
+  };
 
   const formatDateTime = (dateTime: string): string => {
     const options = {
@@ -81,6 +88,34 @@ export const StreamPage: FC = () => {
   const handleDateToChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDateTo(event.target.value);
   };
+
+  useEffect(() => {
+    const filterParams: Record<string, string> = {};
+
+    if (selectedStatus) {
+      filterParams["filter[status]"] = selectedStatus;
+    }
+
+    if (selectedDateFrom) {
+      filterParams["filter[date_start_from]"] = selectedDateFrom;
+    }
+
+    if (selectedDateTo) {
+      filterParams["filter[date_start_to]"] = selectedDateTo;
+    }
+
+    const url = new URL("http://localhost:8000/api/meetings");
+    url.search = new URLSearchParams(filterParams).toString();
+
+    fetch(url.toString())
+      .then((response) => response.json())
+      .then((data) => {
+        setMeetings(data.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching meetings:", error);
+      });
+  }, []);
 
   return (
     <>
@@ -122,7 +157,12 @@ export const StreamPage: FC = () => {
               </div>
             </div>
             <div className={styles.SubmitFilterContainer}>
-              <button className={styles.SubmitFilterButton}>Применить</button>
+              <button
+                className={styles.SubmitFilterButton}
+                onClick={handleFilterSubmit}
+              >
+                Применить
+              </button>
             </div>
           </div>
           <div className={styles.MeetingsList}>
