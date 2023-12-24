@@ -1,0 +1,92 @@
+.Container {
+  height: 100%;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+.PageTitleContainer {
+  margin-top: var(--l-2);
+  background-color: var(--bg-contrast);
+}
+
+.PageTitleText {
+  width: var(--container-width);
+  padding-block: var(--s-4);
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: var(--l-4);
+  margin-top: var(--l-2);
+  background-color: var(--bg-contrast);
+}
+
+.FilterSection {
+  width: 100%;
+}
+
+.Status {
+  padding: var(--s-4);
+  margin-top: var(--l-1);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  gap: var(--s-4);
+}
+.StatusText {
+}
+.StatusButton {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.SubmitFilterContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+.SubmitFilterButton {
+  background-color: var(--bg-contrast);
+  font-family: "Montserrat", sans-serif;
+  border-radius: var(--s-4);
+  padding: var(--s-2);
+  padding-inline: var(--s-4);
+  cursor: pointer;
+}
+
+.MeetingsList {
+  padding-top: var(--l-1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.MeetingCard {
+  flex-basis: var(--card-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  background-color: var(--bg-cards);
+  padding: var(--s-8);
+  border-radius: var(--s-4);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: var(--l-1);
+  cursor: pointer;
+}
+.TitleBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.MeetingTitle {
+  font-weight: bold;
+}
+
+.MeetingDate {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border-radius: var(--l-1);
+  padding: var(--s-1);
+  padding-inline: var(--s-4);
+}
+
+.MeetingStatus {
+}
